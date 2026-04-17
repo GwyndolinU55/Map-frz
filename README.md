@@ -1,3 +1,2 @@
-Windows:
-cd /d D:\map-mirror-site-clean2
-py -m http.server 8000
+v1.1
+新增英文版JSON文本信息，手机端优化，发现广东省坐标错误待修改
