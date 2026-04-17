@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Victims of Leviathan</title>
+  <meta name="description" content="Victims of Leviathan" />
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="./style.css?v=20260415c" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1 id="siteTitle">Victims of Leviathan</h1>
+      <p id="siteSubtitle">Statistics on Chinese youth "correction" institutions, based on the final JSON archived by NO CONVERSION THERAPY PROJECT on April 15, 2026.</p>
+    </div>
+    <div class="actions">
+      <div class="lang-switch" role="group" aria-labelledby="langLabel">
+        <span id="langLabel">Language</span>
+        <div class="lang-buttons">
+          <button class="lang-btn" type="button" data-lang="en">English</button>
+          <button class="lang-btn" type="button" data-lang="zh">中文</button>
+        </div>
+      </div>
+      <a class="btn ghost" id="jsonLink" href="./data/map-data-en.json" target="_blank" rel="noopener">View raw JSON</a>
+    </div>
+  </header>
+
+  <section class="stats" id="stats">
+    <div class="card stat"><span class="label" id="labelSchoolNum">Listed institutions</span><strong id="schoolNum">-</strong></div>
+    <div class="card stat"><span class="label" id="labelFormNum">Form submissions</span><strong id="formNum">-</strong></div>
+    <div class="card stat"><span class="label" id="labelAvgAge">Average age</span><strong id="avgAge">-</strong></div>
+    <div class="card stat"><span class="label" id="labelLastSynced">Last synced</span><strong id="lastSynced">-</strong></div>
+  </section>
+
+  <section class="layout">
+    <aside class="sidebar">
+      <div class="card controls">
+        <h2 id="filtersTitle">Filters</h2>
+        <label>
+          <span id="keywordLabel">Keyword</span>
+          <input id="searchInput" type="search" placeholder="Search by name, address, province, or text..." />
+        </label>
+        <label>
+          <span id="provinceLabel">Province</span>
+          <select id="provinceSelect">
+            <option value="" id="provinceAllOption">All provinces</option>
+          </select>
+        </label>
+        <label class="checkbox">
+          <input id="onlyWithText" type="checkbox" />
+          <span id="onlyWithTextLabel">Only entries with detailed text</span>
+        </label>
+        <div class="summary" id="filterSummary">Loading...</div>
+      </div>
+
+      <div class="card province-card">
+        <h2 id="provinceStatsTitle">Province stats</h2>
+        <div id="provinceStats" class="province-stats"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div id="map" aria-label="Map"></div>
+      <div class="card list-card">
+        <div class="list-header">
+          <h2 id="entriesTitle">Entries</h2>
+          <span id="resultCount">-</span>
+        </div>
+        <div id="resultList" class="result-list"></div>
+      </div>
+    </main>
+  </section>
+
+  <template id="itemTemplate">
+    <article class="entry">
+      <button class="entry-header" type="button">
+        <div class="entry-main">
+          <h3 class="entry-title"></h3>
+          <p class="entry-meta"></p>
+        </div>
+        <span class="entry-toggle" aria-hidden="true">+</span>
+      </button>
+      <div class="entry-body">
+        <p class="entry-text entry-experience hidden"></p>
+        <p class="entry-text entry-scandal hidden"></p>
+        <p class="entry-text entry-contact hidden"></p>
+        <div class="entry-actions-row">
+          <button class="btn small entry-locate" type="button">Locate on map</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="./app.js?v=20260415c"></script>
+</body>
+</html>
