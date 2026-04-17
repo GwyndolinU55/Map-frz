@@ -37,7 +37,7 @@ const I18N = {
     pageTitle: 'Victims of Leviathan',
     pageDescription: 'Victims of Leviathan',
     siteTitle: 'Victims of Leviathan',
-    siteSubtitle: '中国青少年“矫正”机构统计，以及基于 NO CONVERSION THERAPY PROJECT 于 2026年4月15日 最后保存的 JSON 开发而来',
+    siteSubtitle: '中国青少年“矫正”机构统计，基于 NO CONVERSION THERAPY PROJECT 于 2026年4月15日 最后保存的 JSON 开发而来',
     langLabel: '语言',
     viewJson: '查看原始 JSON',
     schoolNum: '收录机构',
